@@ -27,7 +27,7 @@
 
 import semmle.code.cpp.commons.File
 import semmle.code.cpp.exprs.Expr
-
+import metaconfig2
 /**
  * Holds if `actual` is the override of `resolved` for a value of type
  * `dynamic`.
@@ -740,11 +740,25 @@ class PointsToExpr extends Expr {
    * This predicate is empty by default. It should be overridden and defined to
    * include just those expressions for which points-to information is desired.
    */
-  predicate interesting() { none() }
+  predicate interesting() { 
+    none() 
+  }
 
   pragma[noopt]
   Element pointsTo() {
     this.interesting() and
+    exists(int set, @element thisEntity, @element resultEntity |
+      thisEntity = underlyingElement(this) and
+      pointstosets(set, thisEntity) and
+      setlocations(set, resultEntity) and
+      resultEntity = localUnresolveElement(result)
+    )
+  }
+
+  pragma[noopt]
+  Element pointsToLocal() {
+    this.interesting() and
+    isPartialTarget2(result) and
     exists(int set, @element thisEntity, @element resultEntity |
       thisEntity = underlyingElement(this) and
       pointstosets(set, thisEntity) and
