@@ -767,7 +767,7 @@ class PointsToExpr extends Expr {
     )
   }
 
-  float confidence() { result = 1.0 / count(this.pointsTo()) }
+  float confidence() { result = 1.0 / count(this.pointsToLocal()) }
 }
 
 // This is used above in a `pragma[noopt]` context, which prevents its
