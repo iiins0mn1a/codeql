@@ -26,8 +26,8 @@ private class LiteralTargetLocal extends string{
             ".*dma_case.*", // for Demo
             ".*insomnia.*", // for All
             ".*include\\/linux.*", // for API map_single
-            ".*\\/drivers\\/crypto\\/.*",  
-            ".*\\/drivers\\/usb\\/.*"
+            ".*\\/drivers\\/crypto.*",  
+            ".*\\/drivers\\/usb.*"
         ]
     }
 
@@ -51,8 +51,8 @@ private class LiteralTargetLocal extends string{
 
     LiteralTargetLocal getIncludeLocal() { result = ".*include\\/linux.*" }
 
-    LiteralTargetLocal getCryptoLocal() { result = ".*\\/drivers\\/crypto\\/.*" }
+    LiteralTargetLocal getCryptoLocal() { result = ".*\\/drivers\\/crypto.*" }
 
-    LiteralTargetLocal getUsbLocal() { result = ".*\\/drivers\\/usb\\/.*" }
+    LiteralTargetLocal getUsbLocal() { result = ".*\\/drivers\\/usb.*" }
 
 }
