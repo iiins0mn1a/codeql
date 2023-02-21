@@ -744,16 +744,16 @@ class PointsToExpr extends Expr {
     none() 
   }
 
-  // pragma[noopt]
-  // Element pointsTo() {
-  //   this.interesting() and
-  //   exists(int set, @element thisEntity, @element resultEntity |
-  //     thisEntity = underlyingElement(this) and
-  //     pointstosets(set, thisEntity) and
-  //     setlocations(set, resultEntity) and
-  //     resultEntity = localUnresolveElement(result)
-  //   )
-  // }
+  pragma[noopt]
+  Element pointsTo() {
+    this.interesting() and
+    exists(int set, @element thisEntity, @element resultEntity |
+      thisEntity = underlyingElement(this) and
+      pointstosets(set, thisEntity) and
+      setlocations(set, resultEntity) and
+      resultEntity = localUnresolveElement(result)
+    )
+  }
 
   pragma[noopt]
   Element pointsToLocal() {
