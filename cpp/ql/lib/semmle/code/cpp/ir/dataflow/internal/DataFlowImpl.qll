@@ -145,7 +145,7 @@ abstract class Configuration extends string {
    *    Implies both of the above and additionally ensures that the entire flow
    *    path preserves the call context.
    */
-  FlowFeature getAFeature() { none() }
+  FlowFeature getAFeature() { result.toString() = "Feature-SinkCallContext" }
 
   /**
    * Holds if data may flow from `source` to `sink` for this configuration.
